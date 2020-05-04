@@ -1,0 +1,28 @@
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  /* float: left; */
+  /* flex-direction: row; */
+}
+
+.cart-outer-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 80vh;
+}
+
+.checkout-buttons button {
+  margin-top: 20px;
+  width: 50%;
+}
