@@ -71,6 +71,10 @@
   .product-photo {
     width: 400px;
   }
+
+  .lookbook-cover h1 {
+    font-size: 40px;
+  }
 }
 
 /* for mobile */
@@ -170,5 +174,9 @@
 
   .product-photo {
     width: 475px;
+  }
+
+  .lookbook-cover h1 {
+    font-size: 25px;
   }
 }

@@ -12,9 +12,10 @@ export default class Shipping extends Component {
       address: '',
       state: '',
       zipcode: '',
+      // user: [],
       updateMode: false,
     };
-    this.update = this.update.bind(this);
+    this.updateShipping = this.updateShipping.bind(this);
     this.toggleUpdate = this.toggleUpdate.bind(this);
     this.getUserInfo = this.getUserInfo.bind(this);
   }
@@ -31,6 +32,7 @@ export default class Shipping extends Component {
         address: res.data.address,
         state: res.data.state,
         zipcode: res.data.zipcode,
+        // user: res.data,
       });
     });
   }
@@ -41,21 +43,23 @@ export default class Shipping extends Component {
     });
   }
 
-  update() {
+  updateShipping() {
     const { first_name, last_name, address, state, zipcode } = this.state;
+    axios
+      .put('/auth/update', {
+        first_name,
+        last_name,
+        address,
+        state,
+        zipcode,
+      })
+      .then(() => {
+        this.getUserInfo();
+        console.log('from shipping', this.state);
+      });
 
-    axios.put('/auth/update', {
-      first_name,
-      last_name,
-      address,
-      state,
-      zipcode,
-    });
-
-    // this.getUserInfo();
-
-    // window.location.replace('#/shop');
     window.location.reload();
+    // window.location.replace('#/shop');
   }
 
   toggleUpdate() {
@@ -65,11 +69,10 @@ export default class Shipping extends Component {
   }
 
   render() {
-    console.log(this.state);
-
+    // console.log(this.state);
     return (
       <div className='form-container'>
-        <div className='shipping-form'>
+        <div className='login-form'>
           <img
             src='https://i.pinimg.com/originals/32/30/ca/3230ca44155cceea8ca3f2e4fcefa76a.jpg'
             alt='form holder'
@@ -120,7 +123,9 @@ export default class Shipping extends Component {
                   onChange={(e) => this.changeHandler(e)}
                 />
                 <hr />
-                <button onClick={() => this.update()}>Update Info</button>
+                <button onClick={() => this.updateShipping()}>
+                  Update Info
+                </button>
                 <Link to='/shop'>
                   <button onClick={() => this.toggleUpdate()}>CANCEL</button>
                 </Link>

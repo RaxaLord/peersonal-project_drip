@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initialState = {
   user: null,
-  cart: null,
+  // cart: null,
   loading: false,
 };
 
@@ -10,6 +10,8 @@ const GET_USER = 'GET_USER';
 
 export function getUserSession() {
   let user = axios.get('/auth/user_session').then((res) => res.data);
+  console.log('user from redux', user);
+  console.log(initialState.user);
   return {
     type: GET_USER,
     payload: user,

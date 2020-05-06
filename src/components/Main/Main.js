@@ -7,7 +7,7 @@ export default function Main() {
     <div className='main'>
       <div>
         <Link to='/login'>
-          <h3>Sign up for weekly emails and exclusive offers!</h3>
+          <h3>*** Sign up for weekly emails and exclusive offers! ***</h3>
         </Link>
       </div>
 
