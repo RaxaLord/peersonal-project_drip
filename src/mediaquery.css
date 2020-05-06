@@ -167,4 +167,8 @@
   .container {
     max-height: 100%;
   }
+
+  .product-photo {
+    width: 475px;
+  }
 }
