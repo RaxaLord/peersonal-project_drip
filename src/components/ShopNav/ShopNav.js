@@ -16,14 +16,20 @@ export default class ShopNav extends Component {
             New Items
           </Link>
           <hr />
-          <Link to={'shop/shirt'}>Shirts</Link>
-          <br />
-          <Link to={`/shop/sweater`}>Sweaters</Link>
-          <br />
-          <Link to={`/shop/pants`}>Pants</Link>
-          <br />
-          <Link to={`/shop/shoe`}>Shoes</Link>
-          <br />
+          <ul>
+            <li>
+              <Link to={'shop/shirt'}>Shirts</Link>
+            </li>
+            <li>
+              <Link to={`/shop/sweater`}>Sweaters</Link>
+            </li>
+            <li>
+              <Link to={`/shop/pants`}>Pants</Link>
+            </li>
+            <li>
+              <Link to={`/shop/shoe`}>Shoes</Link>
+            </li>
+          </ul>
         </ul>
       </div>
     );

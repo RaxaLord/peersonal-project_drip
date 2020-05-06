@@ -8,6 +8,7 @@ import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
 import Login from './components/Login/Login';
 import Shipping from './components/Shipping/Shipping';
+import './mediaquery.css';
 
 export default function App() {
   return (

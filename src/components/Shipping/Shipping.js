@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './Shipping.css';
+import { Link } from 'react-router-dom';
 
 export default class Shipping extends Component {
   constructor() {
@@ -66,8 +68,8 @@ export default class Shipping extends Component {
     console.log(this.state);
 
     return (
-      <div>
-        <div className='login-form'>
+      <div className='form-container'>
+        <div className='shipping-form'>
           <img
             src='https://i.pinimg.com/originals/32/30/ca/3230ca44155cceea8ca3f2e4fcefa76a.jpg'
             alt='form holder'
@@ -119,7 +121,9 @@ export default class Shipping extends Component {
                 />
                 <hr />
                 <button onClick={() => this.update()}>Update Info</button>
-                <button onClick={() => this.toggleUpdate()}>CANCEL</button>
+                <Link to='/shop'>
+                  <button onClick={() => this.toggleUpdate()}>CANCEL</button>
+                </Link>
               </div>
             ) : (
               <div>

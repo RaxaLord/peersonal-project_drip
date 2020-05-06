@@ -19,11 +19,7 @@ export default function Main() {
       </div>
 
       <Link to='/shop'>
-        <img
-          src='https://cdn.shopify.com/s/files/1/0866/4890/files/supremebannerslideshow2.jpg?v=1573061210'
-          alt='banner'
-          className='main-banner'
-        />
+        <div className='main-banner' />
       </Link>
 
       <div className='main-photos-container'>

@@ -31,7 +31,7 @@ class Header extends Component {
           </Link>
         </div>
 
-        <nav>
+        <nav className='header-links'>
           <Link to='/'>home</Link> | <Link to='/shop'>shop</Link> |{' '}
           <Link to='/cart'>cart</Link>
         </nav>

@@ -1,22 +1,20 @@
 .main {
-  /* display: flex; */
-  /* flex-direction: column; */
   text-align: center;
   justify-content: space-between;
-  /* align-items: center; */
 }
 
 .main-banner {
-  object-fit: fill;
-  width: 1200px;
+  object-position: center;
+  width: auto;
   height: 530px;
   margin-bottom: 15px;
+  background-image: url(https://cdn.shopify.com/s/files/1/0866/4890/files/supremebannerslideshow2.jpg?v=1573061210);
+  background-position: center;
 }
 
 .main-photos-container {
   display: flex;
   justify-content: space-between;
-  /* flex-direction: row; */
 }
 
 .main-photos {
@@ -27,7 +25,7 @@
 
 .lookbook-cover {
   height: 400px;
-  width: 1200px;
+  width: auto;
   background-image: url('https://static.highsnobiety.com/thumbor/Js3PGLgoXTIFK-g1bjoQkJd4TEk=/fit-in/1200x800/smart/static.highsnobiety.com/wp-content/uploads/2018/10/25175257/hype-bubble-streetwear-bubble-burst-12.jpg');
   background-position: top;
   margin-bottom: 15px;
