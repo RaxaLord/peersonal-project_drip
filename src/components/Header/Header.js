@@ -22,29 +22,37 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className='header'>
-        <Link to='/' className='logo'>
-          <h1>drip</h1>
-          {/* <img src='https://via.placeholder.com/100x50' alt='logo' /> */}
-        </Link>
+        <div className='header-left'>
+          <Link to='/' className='logo'>
+            <h1>drip</h1>
+          </Link>
+        </div>
+
+        <nav>
+          <Link to='/'>home</Link> | <Link to='/shop'>shop</Link> |{' '}
+          <Link to='/cart'>cart</Link>
+        </nav>
 
         <div className='header-right'>
           <div>
             {this.props.user ? (
               <div>
-                <div>
+                <div className='header-login'>
                   Signed in as {this.props.user.first_name},{' '}
                   <a href='#/' onClick={() => this.toggleLogout()}>
                     logout
                   </a>
                   ?
+                  <br />
+                  <Link to='/update'>change account info</Link>
                 </div>
               </div>
             ) : (
               <div>
-                <a href='#/login'>Login</a>
+                <a href='#/login'>Login/Register</a>
               </div>
             )}
           </div>

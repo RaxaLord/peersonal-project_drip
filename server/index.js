@@ -10,6 +10,7 @@ const {
   register,
   logout,
   userSession,
+  updateShipping,
 } = require('./controller/authCtrl');
 
 const {
@@ -18,6 +19,13 @@ const {
   getByType,
   orderByNew,
 } = require('./controller/productCtrl');
+
+const {
+  getCartInfo,
+  getCartTotal,
+  addToCart,
+  deleteItem,
+} = require('./controller/cartCtrl');
 
 const app = express();
 app.use(express.json());
@@ -47,21 +55,28 @@ massive({
   })
   .catch((err) => console.log(err));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-});
-
 // user endpoints
 app.post('/auth/login', login);
 app.post('/auth/register', register);
 app.get('/auth/logout', logout);
 app.get('/auth/user_session', userSession);
+app.put('/auth/update', updateShipping);
 
 // product endpoints
 app.get('/api/all_products', getAllProducts);
 app.get('/api/type/:id', getByType);
 app.get('/api/new_items', orderByNew);
 app.get('/api/product/:id', getProduct);
+
+// cart endpoints
+app.get('/api/cart', getCartInfo);
+app.get('/api/total', getCartTotal);
+app.post('/api/cart/:product_id', addToCart);
+app.delete('/api/delete/:cart_id', deleteItem);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on server: ${SERVER_PORT}`);

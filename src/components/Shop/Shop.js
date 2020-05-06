@@ -13,11 +13,10 @@ export default class Shop extends Component {
 
     this.getNew = this.getNew.bind(this);
     this.getAll = this.getAll.bind(this);
-    this.byType = this.byType.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/api/all_products`).then((res) => {
+    axios.get('/api/all_products').then((res) => {
       this.setState({
         products: res.data,
       });
@@ -25,7 +24,7 @@ export default class Shop extends Component {
   }
 
   getAll() {
-    axios.get(`/api/all_products`).then((res) => {
+    axios.get('/api/all_products').then((res) => {
       this.setState({
         products: res.data,
       });
@@ -39,15 +38,6 @@ export default class Shop extends Component {
       });
     });
     console.log('button hit');
-  }
-
-  byType() {
-    axios.get(`/product_type/${this.props.match.params.type}`).then((res) => {
-      this.setState({
-        products: res.data,
-      });
-    });
-    console.log('got by type');
   }
 
   render() {
@@ -75,11 +65,7 @@ export default class Shop extends Component {
     return (
       <div className='shop'>
         <div className='shop-content'>
-          <ShopNav
-            getnew={this.getNew}
-            getall={this.getAll}
-            bytype={this.byType}
-          />
+          <ShopNav getnew={this.getNew} getall={this.getAll} />
           <div className='shop-right'>{mappedProducts}</div>
         </div>
       </div>

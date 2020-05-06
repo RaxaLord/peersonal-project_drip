@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS cart;
 
 -- table for users --
 CREATE TABLE users
@@ -50,3 +51,21 @@ SELECT *
 FROM users;
 SELECT *
 FROM products;
+
+-- FIRST CREATE A TABLE FOR CARTED ITEMS --
+CREATE TABLE cart
+(
+    cart_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    products_id INT REFERENCES products(product_id),
+);
+
+-- DUMMY DATA
+INSERT INTO cart
+    (user_id, product_id)
+VALUES
+    (6, 7),
+    (2, 2),
+    (8, 1),
+    (8, 3),
+    (12, 13);

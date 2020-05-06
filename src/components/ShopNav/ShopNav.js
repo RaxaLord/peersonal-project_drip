@@ -3,14 +3,6 @@ import './ShopNav.css';
 import { Link } from 'react-router-dom';
 
 export default class ShopNav extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      products: [],
-    };
-  }
-
   render() {
     // console.log(this.state.products);
     return (
@@ -24,9 +16,7 @@ export default class ShopNav extends Component {
             New Items
           </Link>
           <hr />
-          <Link to={'shop/shirt'} onClick={() => this.props.bytype()}>
-            Shirts
-          </Link>
+          <Link to={'shop/shirt'}>Shirts</Link>
           <br />
           <Link to={`/shop/sweater`}>Sweaters</Link>
           <br />

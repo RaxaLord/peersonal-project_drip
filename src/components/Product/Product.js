@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import './Product.css';
 import ShopNav from '../ShopNav/ShopNav';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
       product: [],
-      cart: [],
     };
 
     this.getNew = this.getNew.bind(this);
     this.getAll = this.getAll.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -41,16 +42,13 @@ export default class Product extends Component {
     console.log('button hit');
   }
 
-  addToCart(product) {
-    console.log('hello');
-    this.setState({
-      cart: [...this.state.cart, product],
-    });
+  addToCart(id) {
+    axios.post(`/api/cart/${id}`);
   }
 
   render() {
     // console.log(this.state.product);
-    console.log(this.state.cart);
+    // console.log(this.state.cart);
 
     const mappedProduct = this.state.product.map((product) => {
       return (
@@ -68,7 +66,11 @@ export default class Product extends Component {
               SIZE: {product.size} || IN-STOCK: {product.quantity}
             </h3>
             <h3>${product.price}</h3>
-            <button onClick={() => this.addToCart(product)}>Add To Cart</button>
+            <Link to='/cart'>
+              <button onClick={() => this.addToCart(product.product_id)}>
+                Add To Cart
+              </button>
+            </Link>
           </div>
         </div>
       );

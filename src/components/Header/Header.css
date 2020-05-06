@@ -15,10 +15,16 @@
   letter-spacing: 5px;
   font-weight: bold;
   color: black;
+  background-color: red;
+  height: 50px;
 }
 
 .header-right {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.header-login {
+  text-align: center;
 }

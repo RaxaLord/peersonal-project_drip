@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const initialState = {
   user: null,
+  cart: null,
   loading: false,
 };
 

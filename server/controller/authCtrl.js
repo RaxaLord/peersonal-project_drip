@@ -20,6 +20,9 @@ module.exports = {
           user_id: foundUser[0].user_id,
           first_name: foundUser[0].first_name,
           last_name: foundUser[0].last_name,
+          address: foundUser[0].address,
+          state: foundUser[0].state,
+          zipcode: foundUser[0].zipcode,
         };
         res.status(200).send(req.session.user);
         console.log('user signed in');
@@ -64,6 +67,9 @@ module.exports = {
         user_id: createdUser[0].user_id,
         first_name: createdUser[0].first_name,
         last_name: createdUser[0].last_name,
+        address: foundUser[0].address,
+        state: foundUser[0].state,
+        zipcode: foundUser[0].zipcode,
       };
       res.status(200).send(req.session.user);
       console.log('user registered');
@@ -79,5 +85,28 @@ module.exports = {
   userSession: (req, res) => {
     res.status(200).send(req.session.user);
     console.log('hit from redux!');
+  },
+
+  updateShipping: async (req, res, next) => {
+    try {
+      const db = req.app.get('db');
+      const { first_name, last_name, address, state, zipcode } = req.body;
+      const { user_id } = req.session.user;
+
+      await db.update_shipping([
+        user_id,
+        first_name,
+        last_name,
+        address,
+        state,
+        zipcode,
+      ]);
+
+      res.sendStatus(200);
+      console.log('updated address');
+    } catch (error) {
+      console.log('error updating name', error);
+      res.status(500).send(error);
+    }
   },
 };
