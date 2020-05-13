@@ -53,12 +53,18 @@ export default class Shipping extends Component {
         state,
         zipcode,
       })
-      .then(() => {
-        this.getUserInfo();
-        console.log('from shipping', this.state);
+      .then((res) => {
+        this.setState({
+          first_name: res.data.first_name,
+          last_name: res.data.last_name,
+          address: res.data.address,
+          state: res.data.state,
+          zipcode: res.data.zipcode,
+          // user: res.data,
+        });
+        window.location.reload();
       });
 
-    window.location.reload();
     // window.location.replace('#/shop');
   }
 

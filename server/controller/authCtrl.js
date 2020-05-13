@@ -93,7 +93,7 @@ module.exports = {
       const { first_name, last_name, address, state, zipcode } = req.body;
       const { user_id } = req.session.user;
 
-      await db.update_shipping([
+      const user = await db.update_shipping([
         user_id,
         first_name,
         last_name,
@@ -101,6 +101,8 @@ module.exports = {
         state,
         zipcode,
       ]);
+
+      req.session.user = user[0];
 
       res.sendStatus(200);
       console.log('updated address');

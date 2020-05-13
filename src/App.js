@@ -10,12 +10,12 @@ import Login from './components/Login/Login';
 import Shipping from './components/Shipping/Shipping';
 import './mediaquery.css';
 import { connect } from 'react-redux';
-import { getUserSession } from './redux/reducer';
+// import { getUserSession } from './redux/reducer';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.getUserSession();
-  }
+  // componentDidMount() {
+  //   this.props.getUserSession();
+  // }
 
   render() {
     return (
@@ -38,4 +38,4 @@ class App extends Component {
 
 const mapStateToProps = (state) => state;
 
-export default connect(mapStateToProps, { getUserSession })(App);
+export default connect(mapStateToProps)(App);
